@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: django_db
+      POSTGRES_USER: django_user
+      POSTGRES_PASSWORD: django_password
+    ports:
+      - "5432:5432"
+
+  web:
+    build: 
+      context: ./workmate
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./staticfiles:/app/staticfiles 
+    environment:
+      DJANGO_SETTINGS_MODULE: workmate.settings
+      DATABASE_URL: postgres://django_user:django_password@db:5432/django_db
+
+volumes:
+  postgres_data:
+  static:

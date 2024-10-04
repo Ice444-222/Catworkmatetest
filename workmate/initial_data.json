@@ -1,0 +1,38 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$...",
+      "last_login": "2024-09-30T10:00:00Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-09-30T10:00:00Z"
+    }
+  },
+  {
+    "model": "cats.breed",
+    "pk": 1,
+    "fields": {
+      "name": "Бенгал",
+      "description": "Очень активная порода."
+    }
+  },
+  {
+    "model": "cats.cat",
+    "pk": 1,
+    "fields": {
+      "name": "Айс",
+      "color": "Gray",
+      "birth_date": "2023-01-01",
+      "description": "Молодой котёнок",
+      "breed": 1,
+      "author": 1
+    }
+  }
+]
